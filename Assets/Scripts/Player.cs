@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Rigidbody2D rigid;
-
+    [SerializeField] private float speed = 10f;
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -15,32 +15,27 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();            
+        rigid = GetComponent<Rigidbody2D>();
     }
 
-    /// <summary>
-    /// This function is called when the object becomes enabled and active.
-    /// </summary>
+    void Movement(Vector2 moveInput)
+    {
+        rigid.MovePosition(rigid.position + moveInput * speed * Time.fixedDeltaTime);
+        rigid.velocity = moveInput * speed;
+    }
+    
     void OnEnable()
     {
         playerInput.Enable();
     }
-
-    /// <summary>
-    /// This function is called when the behaviour becomes disabled or inactive.
-    /// </summary>
+   
     void OnDisable()
     {
         playerInput.Disable();
     }
-
-    /// <summary>
-    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
-    /// </summary>
+    
     void FixedUpdate()
     {
-        Vector2 moveInput = playerInput.Movement.Move.ReadValue<Vector2>();
-        
-        rigid.MovePosition(rigid.position + moveInput * 5 * Time.fixedDeltaTime);
+        Movement(playerInput.Movement.Move.ReadValue<Vector2>());
     }
 }
