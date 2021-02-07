@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 1ebbc31e45d842040aa77a4012b51ce4
+guid: 01ea3cc3b3885f546b87fbf7700fa34f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1126834206521684660
-    second: SkelletonNokia-Sheet_0
+      213: -1279913683086028933
+    second: PlayerNokiaCopia1-Sheet-export_0
   - first:
-      213: 2176826459620709068
-    second: SkelletonNokia-Sheet_1
+      213: 7198371442364126891
+    second: PlayerNokiaCopia1-Sheet-export_1
+  - first:
+      213: 2111439705410202005
+    second: PlayerNokiaCopia1-Sheet-export_2
+  - first:
+      213: 760286455160986695
+    second: PlayerNokiaCopia1-Sheet-export_3
+  - first:
+      213: -3531754054755193683
+    second: PlayerNokiaCopia1-Sheet-export_4
+  - first:
+      213: -1103866690013223564
+    second: PlayerNokiaCopia1-Sheet-export_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkelletonNokia-Sheet_0
+      name: PlayerNokiaCopia1-Sheet-export_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 13
-        height: 14
+        x: 4
+        y: 2
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b2fb789db153af00800000000000000
-      internalID: 1126834206521684660
+      spriteID: b7fce785945dc3ee0800000000000000
+      internalID: -1279913683086028933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkelletonNokia-Sheet_1
+      name: PlayerNokiaCopia1-Sheet-export_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 1
-        width: 11
-        height: 14
+        x: 20
+        y: 2
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc21d57b124a53e10800000000000000
-      internalID: 2176826459620709068
+      spriteID: ba61e6f20b0c5e360800000000000000
+      internalID: 7198371442364126891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerNokiaCopia1-Sheet-export_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 8
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59961a5a9375d4d10800000000000000
+      internalID: 2111439705410202005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerNokiaCopia1-Sheet-export_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 8
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c5967b0841d8a00800000000000000
+      internalID: 760286455160986695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerNokiaCopia1-Sheet-export_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac65443660bcfec0800000000000000
+      internalID: -3531754054755193683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerNokiaCopia1-Sheet-export_5
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475206e08174ea0f0800000000000000
+      internalID: -1103866690013223564
       vertices: []
       indices: 
       edges: []

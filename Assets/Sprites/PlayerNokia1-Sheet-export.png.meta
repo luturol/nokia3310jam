@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 1ebbc31e45d842040aa77a4012b51ce4
+guid: cfa0fef13153fdf41be0fc5929f58936
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1126834206521684660
-    second: SkelletonNokia-Sheet_0
+      213: 3778988532188390654
+    second: PlayerNokia1-Sheet-export_0
   - first:
-      213: 2176826459620709068
-    second: SkelletonNokia-Sheet_1
+      213: -8627962655248543333
+    second: PlayerNokia1-Sheet-export_1
+  - first:
+      213: 3712436764447273672
+    second: PlayerNokia1-Sheet-export_2
+  - first:
+      213: -4631082314579471654
+    second: PlayerNokia1-Sheet-export_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkelletonNokia-Sheet_0
+      name: PlayerNokia1-Sheet-export_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 3
         y: 1
-        width: 13
-        height: 14
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +113,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b2fb789db153af00800000000000000
-      internalID: 1126834206521684660
+      spriteID: ef42d5f4c0aa17430800000000000000
+      internalID: 3778988532188390654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkelletonNokia-Sheet_1
+      name: PlayerNokia1-Sheet-export_1
       rect:
         serializedVersion: 2
         x: 19
         y: 1
-        width: 11
-        height: 14
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc21d57b124a53e10800000000000000
-      internalID: 2176826459620709068
+      spriteID: b91139e8da1534880800000000000000
+      internalID: -8627962655248543333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerNokia1-Sheet-export_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2faf36199358330800000000000000
+      internalID: 3712436764447273672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerNokia1-Sheet-export_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad295e1eb271bbfb0800000000000000
+      internalID: -4631082314579471654
       vertices: []
       indices: 
       edges: []
