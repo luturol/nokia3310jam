@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -4631082314579471654
     second: PlayerNokia1-Sheet-export_3
+  - first:
+      213: -128865572065305985
+    second: PlayerNokia1-Sheet-export_0
+  - first:
+      213: 5776200806384853822
+    second: PlayerNokia1-Sheet-export_1
+  - first:
+      213: 7011957963450323004
+    second: PlayerNokia1-Sheet-export_2
+  - first:
+      213: 4216907840367674671
+    second: PlayerNokia1-Sheet-export_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -76,7 +88,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +100,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef42d5f4c0aa17430800000000000000
-      internalID: 3778988532188390654
+      spriteID: f7a1549e17d263ef0800000000000000
+      internalID: -128865572065305985
       vertices: []
       indices: 
       edges: []
@@ -134,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91139e8da1534880800000000000000
-      internalID: -8627962655248543333
+      spriteID: e33e4ef9700392050800000000000000
+      internalID: 5776200806384853822
       vertices: []
       indices: 
       edges: []
@@ -155,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2faf36199358330800000000000000
-      internalID: 3712436764447273672
+      spriteID: c309d67ed9a7f4160800000000000000
+      internalID: 7011957963450323004
       vertices: []
       indices: 
       edges: []
@@ -176,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad295e1eb271bbfb0800000000000000
-      internalID: -4631082314579471654
+      spriteID: f25cca3b657758a30800000000000000
+      internalID: 4216907840367674671
       vertices: []
       indices: 
       edges: []
