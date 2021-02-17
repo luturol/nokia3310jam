@@ -7,9 +7,22 @@ public class Monster : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private Transform[] positions;
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioClip hitAudio;
 
     private bool isPlayerInRange = false;
     private int posIndex = 0;
+    private Vector2 initialPos;
+    private AudioSource audioSource;
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        initialPos = new Vector2(transform.position.x, transform.position.y);
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private bool validationPosNextPosIndex = false;
     void Update()
@@ -47,17 +60,6 @@ public class Monster : MonoBehaviour
     }
 
     /// <summary>
-    /// Sent when another object leaves a trigger collider attached to
-    /// this object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-            isPlayerInRange = false;
-    }
-
-    /// <summary>
     /// Sent when an incoming collider makes contact with this object's
     /// collider (2D physics only).
     /// </summary>
@@ -66,7 +68,9 @@ public class Monster : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            
+            audioSource.PlayOneShot(hitAudio);
+            isPlayerInRange = false;
+            transform.position = initialPos;
         }
     }
 }

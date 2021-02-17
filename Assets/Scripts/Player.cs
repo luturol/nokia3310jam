@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerInput playerInput;
-    private Rigidbody2D rigid;
-
     [SerializeField] private float speed = 10f;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    private PlayerInput playerInput;
+    private Rigidbody2D rigid;
+    private Vector2 initialPos;
     void Awake()
     {
         playerInput = new PlayerInput();
+        initialPos = new Vector2(transform.position.x, transform.position.y);
     }
 
     // Start is called before the first frame update
@@ -56,5 +57,18 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Movement(playerInput.Movement.Move.ReadValue<Vector2>());
+    }
+
+    /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Monster")
+        {
+            transform.position = initialPos;
+        }
     }
 }
