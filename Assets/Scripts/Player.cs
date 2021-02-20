@@ -7,14 +7,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject bustedImage;
 
     private PlayerInput playerInput;
     private Rigidbody2D rigid;
     private Vector2 initialPos;
+    private bool canMove = true;
+    private GameStatus gameStatus;
     void Awake()
     {
         playerInput = new PlayerInput();
         initialPos = new Vector2(transform.position.x, transform.position.y);
+        gameStatus = FindObjectOfType<GameStatus>();
     }
 
     // Start is called before the first frame update
@@ -23,6 +27,17 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
+    {
+        if (!canMove)
+        {
+            transform.position = initialPos;
+        }
+    }
+    
     void Movement(Vector2 moveInput)
     {
         if (moveInput.x != 0 || moveInput.y != 0)
@@ -56,7 +71,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement(playerInput.Movement.Move.ReadValue<Vector2>());
+        if (canMove)
+            Movement(playerInput.Movement.Move.ReadValue<Vector2>());
     }
 
     /// <summary>
@@ -66,9 +82,13 @@ public class Player : MonoBehaviour
     /// <param name="other">The Collision2D data associated with this collision.</param>
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Monster")
+        if (other.gameObject.tag == "Monster")
         {
+            canMove = false;
             transform.position = initialPos;
+            gameStatus.RestartGame();
         }
     }
+
+    public void CanMove() => canMove = true;
 }
