@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1224967869771144338
 RectTransform:
   m_ObjectHideFlags: 0
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayTimeToRestartGame: 5
   bustedImage: {fileID: 1224967869771144339}
+  timeToRestartText: {fileID: 8226060803753907421}
 --- !u!1 &4487162800469501074
 GameObject:
   m_ObjectHideFlags: 0
