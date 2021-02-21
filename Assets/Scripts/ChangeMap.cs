@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ChangeMap : MonoBehaviour
 {
+    [SerializeField] private AudioClip winSFX;
+
     private SceneLoader sceneLoader;
-    
+    private AudioSource audioSource;
+
     void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoader>();    
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -24,7 +28,10 @@ public class ChangeMap : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
+        {
+            audioSource.PlayOneShot(winSFX);
             LoadNextScene();
+        }            
     }
 
     private void LoadNextScene()
