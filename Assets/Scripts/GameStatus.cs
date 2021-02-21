@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameStatus : MonoBehaviour
 {
-    [SerializeField] private float delayTimeToRestartGame = 5f;        
+    [SerializeField] private float delayTimeToRestartGame = 5f;
     [SerializeField] private GameObject bustedImage;
+    [SerializeField] private TextMeshProUGUI timeToRestartText;
 
-    private bool restart = false;    
-    private float currentTime = 0f;
+    private bool restart = false;
+    private float waitingTime = 0f;
     private Player player;
 
     /// <summary>
@@ -17,24 +19,27 @@ public class GameStatus : MonoBehaviour
     /// </summary>
     void Start()
     {
-        player = FindObjectOfType<Player>();    
+        player = FindObjectOfType<Player>();
+        waitingTime = delayTimeToRestartGame;
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        if(restart)
+    {
+        if (restart)
         {
             bustedImage.SetActive(true);
-            currentTime += Time.deltaTime;
-            if(currentTime >= delayTimeToRestartGame)
+            timeToRestartText.text = ((int) waitingTime).ToString();
+            waitingTime -= Time.deltaTime;
+
+            if (waitingTime <= 0)
             {
                 bustedImage.SetActive(false);
                 restart = false;
                 player.CanMove();
-                currentTime = 0f;                
+                waitingTime = 0f;
             }
-        }        
+        }
     }
 
     public void RestartGame() => restart = true;
