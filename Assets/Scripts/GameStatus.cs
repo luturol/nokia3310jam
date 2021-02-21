@@ -37,7 +37,7 @@ public class GameStatus : MonoBehaviour
                 bustedImage.SetActive(false);
                 restart = false;
                 player.CanMove();
-                waitingTime = 0f;
+                waitingTime = delayTimeToRestartGame;
             }
         }
     }
