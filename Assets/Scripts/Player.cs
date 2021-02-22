@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Net.Sockets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     private Vector2 initialPos;
     private bool canMove = true;
     private GameStatus gameStatus;
+    private Vector2 lastPosition;
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -32,9 +34,9 @@ public class Player : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (!canMove)
+        if(!canMove)
         {
-            transform.position = initialPos;
+            transform.position = lastPosition;
         }
     }
     
@@ -84,11 +86,12 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster")
         {
-            canMove = false;
-            transform.position = initialPos;
+            canMove = false;            
             gameStatus.RestartGame();
+            lastPosition = new Vector2(transform.position.x, transform.position.y);
         }
     }
 
     public void CanMove() => canMove = true;
+    public void SetToInitialPosition() => transform.position = initialPos;
 }

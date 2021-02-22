@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class GameStatus : MonoBehaviour
     private bool restart = false;
     private float waitingTime = 0f;
     private Player player;
-
+    private List<Monster> monsters;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -20,6 +21,7 @@ public class GameStatus : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
+        monsters = FindObjectsOfType<Monster>().ToList();
         waitingTime = delayTimeToRestartGame;
     }
 
@@ -29,15 +31,22 @@ public class GameStatus : MonoBehaviour
         if (restart)
         {
             bustedImage.SetActive(true);
-            timeToRestartText.text = ((int) waitingTime).ToString();
+            timeToRestartText.text = ((int)waitingTime).ToString();
             waitingTime -= Time.deltaTime;
-
+            monsters.ForEach(e => e.EnableMovement(false));
             if (waitingTime <= 0)
             {
                 bustedImage.SetActive(false);
                 restart = false;
-                player.CanMove();
                 waitingTime = delayTimeToRestartGame;
+                
+                player.CanMove();
+                player.SetToInitialPosition();
+                monsters.ForEach(e =>
+                {
+                    e.EnableMovement(true);
+                    e.SetToInitialPosition();
+                });
             }
         }
     }

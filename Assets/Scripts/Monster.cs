@@ -13,6 +13,7 @@ public class Monster : MonoBehaviour
     private int posIndex = 0;
     private Vector2 initialPos;
     private AudioSource audioSource;
+    private bool canMove = true;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -27,24 +28,27 @@ public class Monster : MonoBehaviour
     private bool validationPosNextPosIndex = false;
     void Update()
     {
-        if (!isPlayerInRange && positions.Length > 0)
+        if (canMove)
         {
-            Transform nextPosition = positions[posIndex];
-            bool isPositionEquals = transform.position.x == nextPosition.position.x && transform.position.y == nextPosition.position.y;
-            if (isPositionEquals)
+            if (!isPlayerInRange && positions.Length > 0)
             {
-                validationPosNextPosIndex = positions.Length > posIndex + 1;
-                if (validationPosNextPosIndex)
-                    posIndex++;
-                else
-                    posIndex = 0;
-                nextPosition = positions[posIndex];
+                Transform nextPosition = positions[posIndex];
+                bool isPositionEquals = transform.position.x == nextPosition.position.x && transform.position.y == nextPosition.position.y;
+                if (isPositionEquals)
+                {
+                    validationPosNextPosIndex = positions.Length > posIndex + 1;
+                    if (validationPosNextPosIndex)
+                        posIndex++;
+                    else
+                        posIndex = 0;
+                    nextPosition = positions[posIndex];
+                }
+                transform.position = Vector2.MoveTowards(transform.position, nextPosition.position, speed * Time.fixedDeltaTime);
             }
-            transform.position = Vector2.MoveTowards(transform.position, nextPosition.position, speed * Time.fixedDeltaTime);
-        }
-        else if (isPlayerInRange)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+            else if (isPlayerInRange)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+            }
         }
     }
 
@@ -69,8 +73,10 @@ public class Monster : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             audioSource.PlayOneShot(hitAudio);
-            isPlayerInRange = false;
-            transform.position = initialPos;
+            isPlayerInRange = false;            
         }
     }
+
+    public void EnableMovement(bool enable) => canMove = enable;
+    public void SetToInitialPosition() => transform.position = initialPos;
 }
