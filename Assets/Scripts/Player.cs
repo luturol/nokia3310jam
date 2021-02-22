@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     {
         if(!canMove)
         {
+            animator.SetInteger("Walking", 0);
             transform.position = lastPosition;
         }
     }

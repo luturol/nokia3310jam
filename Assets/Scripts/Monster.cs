@@ -14,6 +14,7 @@ public class Monster : MonoBehaviour
     private Vector2 initialPos;
     private AudioSource audioSource;
     private bool canMove = true;
+    private Vector2 lastPosition;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -50,6 +51,10 @@ public class Monster : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
             }
         }
+        else
+        {
+            transform.position = lastPosition;
+        }
     }
 
     /// <summary>
@@ -73,7 +78,8 @@ public class Monster : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             audioSource.PlayOneShot(hitAudio);
-            isPlayerInRange = false;            
+            isPlayerInRange = false;
+            lastPosition = new Vector2(transform.position.x, transform.position.y);
         }
     }
 
