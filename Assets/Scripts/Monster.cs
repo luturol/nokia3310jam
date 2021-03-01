@@ -26,35 +26,39 @@ public class Monster : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private bool validationPosNextPosIndex = false;
     void Update()
     {
-        if (canMove)
+        if (canMove && !isPlayerInRange && positions.Length > 0)
         {
-            if (!isPlayerInRange && positions.Length > 0)
-            {
-                Transform nextPosition = positions[posIndex];
-                bool isPositionEquals = transform.position.x == nextPosition.position.x && transform.position.y == nextPosition.position.y;
-                if (isPositionEquals)
-                {
-                    validationPosNextPosIndex = positions.Length > posIndex + 1;
-                    if (validationPosNextPosIndex)
-                        posIndex++;
-                    else
-                        posIndex = 0;
-                    nextPosition = positions[posIndex];
-                }
-                transform.position = Vector2.MoveTowards(transform.position, nextPosition.position, speed * Time.fixedDeltaTime);
-            }
-            else if (isPlayerInRange)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
-            }
+            MoveToNextPosition();
+        }
+        else if (canMove && isPlayerInRange)
+        {
+            FollowPlayer();
         }
         else
         {
             transform.position = lastPosition;
         }
+    }
+
+    private void FollowPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.fixedDeltaTime);
+    }
+
+    private void MoveToNextPosition()
+    {
+        Transform nextPosition = positions[posIndex];
+        bool isPositionEquals = transform.position.x == nextPosition.position.x && transform.position.y == nextPosition.position.y;
+
+        if (isPositionEquals)
+        {
+            posIndex = positions.Length > posIndex + 1 ? posIndex++ : 0;
+            nextPosition = positions[posIndex];
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, nextPosition.position, speed * Time.fixedDeltaTime);
     }
 
     /// <summary>
