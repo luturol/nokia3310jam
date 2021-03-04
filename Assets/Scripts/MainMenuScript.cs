@@ -28,6 +28,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayGame()
     {
+        TriggerClickSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
